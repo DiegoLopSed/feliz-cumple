@@ -1,857 +1,257 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>¡Feliz Cumpleaños! 🎉</title>
+  <head>
+    <meta charset="utf-8">
+    <title>Para Sari 💖</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 25%, #16213e 50%, #0f3460 75%, #1e3a8a 100%);
-            min-height: 100vh;
-            overflow-x: hidden;
-            position: relative;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-            text-align: center;
-            position: relative;
-            z-index: 10;
-        }
-
-        .birthday-card {
-            background: rgba(15, 15, 35, 0.95);
-            border: 2px solid #3b82f6;
-            border-radius: 20px;
-            padding: 40px;
-            margin: 20px auto;
-            max-width: 800px;
-            box-shadow: 0 20px 40px rgba(59, 130, 246, 0.3), 0 0 60px rgba(59, 130, 246, 0.1);
-            backdrop-filter: blur(10px);
-            animation: slideIn 1s ease-out;
-        }
-
-        @keyframes slideIn {
-            from {
-                opacity: 0;
-                transform: translateY(50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .birthday-title {
-            font-size: 3.5rem;
-            color: #60a5fa;
-            margin-bottom: 20px;
-            text-shadow: 0 0 20px rgba(96, 165, 250, 0.8), 2px 2px 4px rgba(0, 0, 0, 0.3);
-            animation: bounce 2s infinite;
-        }
-
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% {
-                transform: translateY(0);
-            }
-            40% {
-                transform: translateY(-10px);
-            }
-            60% {
-                transform: translateY(-5px);
-            }
-        }
-
-        .friend-name {
-            font-size: 2.5rem;
-            color: #93c5fd;
-            margin-bottom: 30px;
-            font-weight: bold;
-            text-shadow: 0 0 15px rgba(147, 197, 253, 0.6), 1px 1px 2px rgba(0, 0, 0, 0.3);
-        }
-
-        .birthday-message {
-            font-size: 1.3rem;
-            color: #e2e8f0;
-            line-height: 1.6;
-            margin-bottom: 30px;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .cake-container {
-            margin: 40px 0;
-            position: relative;
-        }
-
-        .cake {
-            width: 200px;
-            height: 150px;
-            background: linear-gradient(45deg, #1e40af, #3b82f6);
-            border-radius: 10px 10px 0 0;
-            margin: 0 auto;
-            position: relative;
-            animation: cakeGlow 3s ease-in-out infinite alternate;
-        }
-
-        @keyframes cakeGlow {
-            from {
-                box-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
-            }
-            to {
-                box-shadow: 0 0 30px rgba(59, 130, 246, 0.8);
-            }
-        }
-
-        .cake-layer {
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 180px;
-            height: 30px;
-            background: linear-gradient(45deg, #1e3a8a, #3b82f6);
-            border-radius: 10px;
-        }
-
-        .cake-layer:nth-child(2) {
-            bottom: 30px;
-            width: 160px;
-            background: linear-gradient(45deg, #1d4ed8, #60a5fa);
-        }
-
-        .cake-layer:nth-child(3) {
-            bottom: 60px;
-            width: 140px;
-            background: linear-gradient(45deg, #2563eb, #93c5fd);
-        }
-
-        .candle {
-            position: absolute;
-            top: -20px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 8px;
-            height: 30px;
-            background: linear-gradient(to bottom, #fff, #ffd700);
-            border-radius: 4px;
-        }
-
-        .flame {
-            position: absolute;
-            top: -15px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 12px;
-            height: 15px;
-            background: radial-gradient(circle, #ff6b35, #ff8c42);
-            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
-            animation: flicker 0.5s ease-in-out infinite alternate;
-        }
-
-        @keyframes flicker {
-            from {
-                transform: translateX(-50%) scale(1);
-                opacity: 1;
-            }
-            to {
-                transform: translateX(-50%) scale(1.1);
-                opacity: 0.8;
-            }
-        }
-
-        .balloons {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 1;
-        }
-
-        .balloon {
-            position: absolute;
-            width: 60px;
-            height: 80px;
-            border-radius: 50%;
-            animation: float 6s ease-in-out infinite;
-        }
-
-        .balloon:nth-child(1) {
-            background: #1e40af;
-            left: 10%;
-            animation-delay: 0s;
-        }
-
-        .balloon:nth-child(2) {
-            background: #3b82f6;
-            left: 20%;
-            animation-delay: 1s;
-        }
-
-        .balloon:nth-child(3) {
-            background: #60a5fa;
-            left: 30%;
-            animation-delay: 2s;
-        }
-
-        .balloon:nth-child(4) {
-            background: #93c5fd;
-            right: 20%;
-            animation-delay: 3s;
-        }
-
-        .balloon:nth-child(5) {
-            background: #1e3a8a;
-            right: 10%;
-            animation-delay: 4s;
-        }
-
-        @keyframes float {
-            0%, 100% {
-                transform: translateY(0px) rotate(0deg);
-            }
-            50% {
-                transform: translateY(-20px) rotate(5deg);
-            }
-        }
-
-        .balloon::after {
-            content: '';
-            position: absolute;
-            bottom: -20px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 2px;
-            height: 30px;
-            background: #333;
-        }
-
-        .confetti {
-            position: fixed;
-            width: 10px;
-            height: 10px;
-            background: #3b82f6;
-            animation: confettiFall 3s linear infinite;
-        }
-
-        @keyframes confettiFall {
-            to {
-                transform: translateY(100vh) rotate(360deg);
-            }
-        }
-
-        .gift-section {
-            margin: 40px 0;
-            padding: 30px;
-            background: linear-gradient(135deg, #1e3a8a, #3b82f6);
-            border-radius: 15px;
-            color: white;
-            border: 1px solid #60a5fa;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .gift-section:hover {
-            transform: scale(1.02);
-            box-shadow: 0 0 30px rgba(59, 130, 246, 0.4);
-        }
-
-        .gift-title {
-            font-size: 2rem;
-            margin-bottom: 20px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-        }
-
-        .gift-box {
-            width: 100px;
-            height: 100px;
-            background: linear-gradient(45deg, #1e40af, #3b82f6);
-            margin: 20px auto;
-            position: relative;
-            border-radius: 10px;
-            animation: giftBounce 2s ease-in-out infinite;
-        }
-
-        @keyframes giftBounce {
-            0%, 100% {
-                transform: translateY(0);
-            }
-            50% {
-                transform: translateY(-10px);
-            }
-        }
-
-        .gift-ribbon {
-            position: absolute;
-            background: #fff;
-        }
-
-        .gift-ribbon.horizontal {
-            width: 100%;
-            height: 8px;
-            top: 50%;
-            transform: translateY(-50%);
-        }
-
-        .gift-ribbon.vertical {
-            width: 8px;
-            height: 100%;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-
-        .gift-bow {
-            position: absolute;
-            top: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 20px;
-            height: 20px;
-            background: #60a5fa;
-            border-radius: 50%;
-        }
-
-
-
-        .countdown {
-            font-size: 1.5rem;
-            color: #60a5fa;
-            margin: 20px 0;
-            font-weight: bold;
-            text-shadow: 0 0 10px rgba(96, 165, 250, 0.5);
-        }
-
-        .wishes-section {
-            margin: 40px 0;
-            padding: 30px;
-            background: rgba(15, 15, 35, 0.9);
-            border-radius: 15px;
-            border: 1px solid #3b82f6;
-        }
-
-        .wish-item {
-            background: linear-gradient(135deg, #1e3a8a, #3b82f6);
-            color: white;
-            padding: 20px;
-            margin: 15px 0;
-            border-radius: 10px;
-            transform: translateX(-100%);
-            animation: slideInWish 0.8s ease-out forwards;
-            border: 1px solid #60a5fa;
-        }
-
-        .wish-item:nth-child(2) { animation-delay: 0.2s; }
-        .wish-item:nth-child(3) { animation-delay: 0.4s; }
-        .wish-item:nth-child(4) { animation-delay: 0.6s; }
-
-        @keyframes slideInWish {
-            to {
-                transform: translateX(0);
-            }
-        }
-
-        .footer {
-            margin-top: 40px;
-            color: white;
-            font-size: 1.1rem;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
-        }
-
-        .heart {
-            color: #60a5fa;
-            animation: heartbeat 1s ease-in-out infinite;
-            text-shadow: 0 0 10px rgba(96, 165, 250, 0.8);
-        }
-
-        @keyframes heartbeat {
-            0%, 100% {
-                transform: scale(1);
-            }
-            50% {
-                transform: scale(1.2);
-            }
-        }
-
-        /* Modal Styles */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.8);
-            backdrop-filter: blur(5px);
-            animation: fadeIn 0.3s ease-out;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
-
-        .modal-content {
-            background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 100%);
-            margin: 5% auto;
-            padding: 30px;
-            border: 2px solid #3b82f6;
-            border-radius: 20px;
-            width: 90%;
-            max-width: 600px;
-            position: relative;
-            animation: slideInModal 0.4s ease-out;
-            box-shadow: 0 0 40px rgba(59, 130, 246, 0.3);
-        }
-
-        @keyframes slideInModal {
-            from {
-                transform: translateY(-50px);
-                opacity: 0;
-            }
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
-        }
-
-        .close {
-            color: #60a5fa;
-            float: right;
-            font-size: 28px;
-            font-weight: bold;
-            cursor: pointer;
-            position: absolute;
-            top: 15px;
-            right: 20px;
-            transition: all 0.3s ease;
-        }
-
-        .close:hover {
-            color: #93c5fd;
-            transform: scale(1.1);
-        }
-
-        .modal-title {
-            color: #60a5fa;
-            font-size: 2rem;
-            margin-bottom: 20px;
-            text-align: center;
-            text-shadow: 0 0 15px rgba(96, 165, 250, 0.6);
-        }
-
-        .gift-list {
-            max-height: 400px;
-            overflow-y: auto;
-            padding-right: 10px;
-        }
-
-        .gift-list::-webkit-scrollbar {
-            width: 8px;
-        }
-
-        .gift-list::-webkit-scrollbar-track {
-            background: rgba(59, 130, 246, 0.1);
-            border-radius: 10px;
-        }
-
-        .gift-list::-webkit-scrollbar-thumb {
-            background: linear-gradient(45deg, #1e40af, #3b82f6);
-            border-radius: 10px;
-        }
-
-        .gift-item {
-            background: linear-gradient(135deg, #1e3a8a, #3b82f6);
-            margin: 15px 0;
-            padding: 20px;
-            border-radius: 15px;
-            border: 1px solid #60a5fa;
-            color: white;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .gift-item:hover {
-            transform: translateX(10px);
-            box-shadow: 0 0 20px rgba(59, 130, 246, 0.4);
-        }
-
-        .gift-item::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-            transition: left 0.5s ease;
-        }
-
-        .gift-item:hover::before {
-            left: 100%;
-        }
-
-        .gift-icon {
-            font-size: 2rem;
-            margin-right: 15px;
-            float: left;
-        }
-
-        .gift-details {
-            margin-left: 60px;
-        }
-
-        .gift-name {
-            font-size: 1.2rem;
-            font-weight: bold;
-            margin-bottom: 5px;
-            color: #e2e8f0;
-        }
-
-        .gift-description {
-            font-size: 0.9rem;
-            color: #cbd5e1;
-            line-height: 1.4;
-        }
-
-        .gift-category {
-            display: inline-block;
-            background: rgba(96, 165, 250, 0.2);
-            padding: 3px 8px;
-            border-radius: 10px;
-            font-size: 0.8rem;
-            margin-top: 5px;
-            border: 1px solid #60a5fa;
-        }
-
-        .gift-count {
-            text-align: center;
-            color: #60a5fa;
-            font-size: 1.1rem;
-            margin-bottom: 20px;
-            font-weight: bold;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .birthday-title {
-                font-size: 2.5rem;
-            }
-            
-            .friend-name {
-                font-size: 2rem;
-            }
-            
-            .birthday-message {
-                font-size: 1.1rem;
-            }
-            
-            .cake {
-                width: 150px;
-                height: 120px;
-            }
-            
-            .cake-layer {
-                width: 135px;
-            }
-            
-            .cake-layer:nth-child(2) {
-                width: 120px;
-            }
-            
-            .cake-layer:nth-child(3) {
-                width: 105px;
-            }
-            
-            .balloon {
-                width: 40px;
-                height: 60px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .container {
-                padding: 10px;
-            }
-            
-            .birthday-card {
-                padding: 20px;
-            }
-            
-            .birthday-title {
-                font-size: 2rem;
-            }
-            
-            .friend-name {
-                font-size: 1.5rem;
-            }
-        }
+      :root {
+        --rosa: #e91e63;
+        --rosa-claro: #fce4ec;
+        --rosa-fondo: #fff5f8;
+      }
+
+      body {
+        font-family: "Poppins", sans-serif;
+        background: linear-gradient(160deg, #fff5f8 0%, #ffffff 50%, #fce4ec 100%);
+        min-height: 100vh;
+        color: #333;
+      }
+
+      .titulo-pagina {
+        font-family: "Pacifico", cursive;
+        font-size: clamp(2rem, 5vw, 2.75rem);
+        color: var(--rosa);
+        text-align: center;
+        padding: 1.5rem 0;
+      }
+
+      .subtitulo {
+        text-align: center;
+        color: #666;
+        font-size: 1rem;
+        margin-bottom: 2rem;
+      }
+
+      .panel {
+        border-radius: 1rem;
+        border: 1px solid rgba(233, 30, 99, 0.15);
+        background: rgba(255, 255, 255, 0.9);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.06);
+      }
+
+      .panel-titulo {
+        font-family: "Pacifico", cursive;
+        font-size: 1.35rem;
+        color: var(--rosa);
+        margin-bottom: 1rem;
+      }
+
+      .mensaje-card {
+        border-radius: 0.75rem;
+        border: 1px solid rgba(233, 30, 99, 0.12);
+        background: linear-gradient(135deg, #ffffff, #fffafc);
+        padding: 1rem 1.25rem;
+        margin-bottom: 0.75rem;
+      }
+
+      .mensaje-autor {
+        font-weight: 600;
+        color: var(--rosa);
+        font-size: 0.95rem;
+      }
+
+      .mensaje-texto {
+        margin: 0.35rem 0 0;
+        font-size: 0.95rem;
+        line-height: 1.5;
+        color: #444;
+      }
+
+      .mensaje-fecha {
+        font-size: 0.7rem;
+        color: #999;
+        margin-top: 0.25rem;
+      }
+
+      .lista-mensajes {
+        max-height: 420px;
+        overflow-y: auto;
+      }
+
+      .lista-mensajes::-webkit-scrollbar {
+        width: 6px;
+      }
+
+      .lista-mensajes::-webkit-scrollbar-thumb {
+        background: rgba(233, 30, 99, 0.3);
+        border-radius: 3px;
+      }
+
+      .vacio {
+        text-align: center;
+        padding: 2rem 1rem;
+        color: #999;
+        font-size: 0.95rem;
+      }
+
+      .btn-enviar {
+        background: var(--rosa);
+        border: none;
+        border-radius: 0.6rem;
+      }
+
+      .btn-enviar:hover {
+        background: #c2185b;
+      }
+
+      .form-control, .form-control:focus {
+        border-radius: 0.6rem;
+        border-color: rgba(233, 30, 99, 0.2);
+      }
+
+      .form-control:focus {
+        box-shadow: 0 0 0 3px rgba(233, 30, 99, 0.1);
+      }
+
+      footer {
+        text-align: center;
+        padding: 1.5rem;
+        color: #888;
+        font-size: 0.85rem;
+      }
     </style>
-</head>
-<body>
-    <div class="balloons">
-        <div class="balloon"></div>
-        <div class="balloon"></div>
-        <div class="balloon"></div>
-        <div class="balloon"></div>
-        <div class="balloon"></div>
-    </div>
+  </head>
+  <body>
+    <div class="container py-3 py-md-4">
+      <h1 class="titulo-pagina">Para Sari 💖</h1>
+      <p class="subtitulo">Un espacio para que quienes te quieren te dejen un mensaje</p>
 
-    <div class="container">
-        <div class="birthday-card">
-            <h1 class="birthday-title">🎉 ¡Feliz Cumpleaños! 🎂</h1>
-            <h2 class="friend-name">Regina! 🎉</h2>
-            
-            <p class="birthday-message">
-                En este dia tan especial quiero celebrarte y agradecer por todos los momentos increibles que hemos compartido juntos.
-                Eres una persona extraordinaria que ilumina mi vida con tu sonrisa, tu bondad y tu amor incondicional.
-                Quiero que sepas que eres todo para mi, y que no puedo imaginar mi vida sin ti.
-                No quiero sonar muy romantico, pero quiero que sepas que te amo mucho y que espero que este dia sea increible.
-                Espero que disfurtes este detalle que hice para ti.
-            </p>
-
-            <div class="cake-container">
-                <div class="cake">
-                    <div class="cake-layer"></div>
-                    <div class="cake-layer"></div>
-                    <div class="cake-layer"></div>
-                    <div class="candle">
-                        <div class="flame"></div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="gift-section" onclick="openGiftModal()">
-                <h3 class="gift-title">🎁 Regalos Especiales</h3>
-                <div class="gift-box">
-                    <div class="gift-ribbon horizontal"></div>
-                    <div class="gift-ribbon vertical"></div>
-                    <div class="gift-bow"></div>
-                </div>
-                <p>¡Haz clic para ver todos los regalos que tengo para ti! ✨</p>
-            </div>
-
-            <div class="wishes-section">
-                <h3 style="color: #60a5fa;">✨ Mis Deseos Para Ti</h3>
-                <div class="wish-item">Que cada día esté lleno de alegría y sonrisas</div>
-                <div class="wish-item">Que todos tus sueños se hagan realidad</div>
-                <div class="wish-item">Que encuentres felicidad en cada momento</div>
-                <div class="wish-item">Que nuestra amistad dure para siempre</div>
-            </div>
-
-
-
-            <div class="countdown" id="countdown"></div>
+      <div class="row g-4">
+        <!-- Panel: Escribir felicitación -->
+        <div class="col-lg-5">
+          <div class="panel p-4">
+            <h2 class="panel-titulo">Escribe tu felicitación</h2>
+            <p class="text-muted small mb-3">Tu nombre y un mensaje bonito para Sari.</p>
+            <form id="form-felicitacion">
+              <div class="mb-3">
+                <label for="nombre" class="form-label">Tu nombre</label>
+                <input type="text" id="nombre" class="form-control" placeholder="Ej: María, Los del trabajo..." required>
+              </div>
+              <div class="mb-3">
+                <label for="mensaje" class="form-label">Tu mensaje para Sari</label>
+                <textarea id="mensaje" class="form-control" rows="4" maxlength="600" placeholder="Escribe aquí lo que quieras decirle..." required></textarea>
+                <div class="form-text">Máximo 600 caracteres</div>
+              </div>
+              <button type="submit" class="btn btn-enviar btn-primary w-100">Enviar felicitación</button>
+              <p id="aviso-envio" class="small mt-2 text-success d-none">¡Listo! Tu mensaje ya está en el panel de abajo.</p>
+            </form>
+          </div>
         </div>
 
-        <div class="footer">
-            <p>Con mucho amor y cariño <span class="heart">❤️</span></p>
-            <p>¡Que tengas el mejor cumpleaños del mundo!</p>
-        </div>
-    </div>
-
-    <!-- Modal de Regalos -->
-    <div id="giftModal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeGiftModal()">&times;</span>
-            <h2 class="modal-title">🎁 Regalos Especiales para ti corazón</h2>
-            <div class="gift-count">Total de regalos: <span id="giftCount">0</span></div>
-            <div class="gift-list" id="giftList">
-                <!-- Los regalos se cargarán dinámicamente -->
+        <!-- Panel: Ver felicitaciones -->
+        <div class="col-lg-7">
+          <div class="panel p-4">
+            <h2 class="panel-titulo">Felicitaciones para Sari</h2>
+            <div id="lista-mensajes" class="lista-mensajes">
+              <!-- Se llenan con JS -->
             </div>
+          </div>
         </div>
+      </div>
+
+      <footer>Hecho con cariño para Sari 💖</footer>
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        // Crear confeti
-        function createConfetti() {
-            const colors = ['#1e40af', '#3b82f6', '#60a5fa', '#93c5fd', '#1e3a8a', '#2563eb'];
-            
-            for (let i = 0; i < 100; i++) {
-                setTimeout(() => {
-                    const confetti = document.createElement('div');
-                    confetti.className = 'confetti';
-                    confetti.style.left = Math.random() * 100 + 'vw';
-                    confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
-                    confetti.style.animationDuration = (Math.random() * 3 + 2) + 's';
-                    document.body.appendChild(confetti);
-                    
-                    setTimeout(() => {
-                        confetti.remove();
-                    }, 5000);
-                }, i * 50);
-            }
+      const CLAVE = "felicitacionesSari";
+
+      function cargar() {
+        try {
+          const s = localStorage.getItem(CLAVE);
+          if (!s) return [];
+          const arr = JSON.parse(s);
+          return Array.isArray(arr) ? arr : [];
+        } catch (e) {
+          return [];
         }
+      }
 
+      function guardar(lista) {
+        try {
+          localStorage.setItem(CLAVE, JSON.stringify(lista));
+        } catch (e) {}
+      }
 
-
-        // Contador regresivo (simulado para el próximo cumpleaños)
-        function updateCountdown() {
-            const now = new Date();
-            const nextBirthday = new Date(now.getFullYear() + 1, 0, 1); // Próximo 1 de enero
-            const timeLeft = nextBirthday - now;
-            
-            const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
-            
-            document.getElementById('countdown').innerHTML = 
-                `⏰ Próximo cumpleaños en: ${days} días, ${hours} horas, ${minutes} minutos`;
+      function fechaLindo(iso) {
+        try {
+          return new Date(iso).toLocaleDateString("es", {
+            day: "numeric", month: "short", year: "numeric",
+            hour: "2-digit", minute: "2-digit"
+          });
+        } catch (e) {
+          return "";
         }
+      }
 
-        // Inicializar
-        document.addEventListener('DOMContentLoaded', function() {
-            createConfetti();
-            updateCountdown();
-            setInterval(updateCountdown, 60000); // Actualizar cada minuto
-            
-            // Crear confeti automáticamente cada 10 segundos
-            setInterval(createConfetti, 10000);
+      function escapar(str) {
+        const div = document.createElement("div");
+        div.textContent = str;
+        return div.innerHTML;
+      }
+
+      function pintar(lista) {
+        const el = document.getElementById("lista-mensajes");
+        if (lista.length === 0) {
+          el.innerHTML = '<div class="vacio">Aún no hay mensajes. ¡Sé el primero en dejarle una felicitación a Sari!</div>';
+          return;
+        }
+        const ordenados = [...lista].reverse();
+        el.innerHTML = ordenados.map(function (m) {
+          const texto = escapar(m.texto).replace(/\n/g, "<br>");
+          const nombre = escapar(m.nombre);
+          const fecha = fechaLindo(m.fecha);
+          return (
+            '<div class="mensaje-card">' +
+              '<div class="mensaje-autor">' + nombre + '</div>' +
+              '<div class="mensaje-texto">' + texto + '</div>' +
+              '<div class="mensaje-fecha">' + fecha + '</div>' +
+            '</div>'
+          );
+        }).join("");
+      }
+
+      var mensajes = cargar();
+      pintar(mensajes);
+
+      document.getElementById("form-felicitacion").addEventListener("submit", function (e) {
+        e.preventDefault();
+        var nombre = document.getElementById("nombre").value.trim();
+        var texto = document.getElementById("mensaje").value.trim();
+        if (!nombre || !texto) return;
+
+        mensajes.push({
+          nombre: nombre,
+          texto: texto,
+          fecha: new Date().toISOString()
         });
+        guardar(mensajes);
+        pintar(mensajes);
 
-        // Efecto de partículas al hacer clic
-        document.addEventListener('click', function(e) {
-            const colors = ['#1e40af', '#3b82f6', '#60a5fa', '#93c5fd'];
-            for (let i = 0; i < 5; i++) {
-                setTimeout(() => {
-                    const particle = document.createElement('div');
-                    particle.style.position = 'fixed';
-                    particle.style.left = e.clientX + 'px';
-                    particle.style.top = e.clientY + 'px';
-                    particle.style.width = '8px';
-                    particle.style.height = '8px';
-                    particle.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
-                    particle.style.borderRadius = '50%';
-                    particle.style.pointerEvents = 'none';
-                    particle.style.zIndex = '1000';
-                    particle.style.animation = 'confettiFall 2s linear forwards';
-                    document.body.appendChild(particle);
-                    
-                    setTimeout(() => {
-                        particle.remove();
-                    }, 2000);
-                }, i * 100);
-            }
-        });
+        this.reset();
+        var aviso = document.getElementById("aviso-envio");
+        aviso.classList.remove("d-none");
+        setTimeout(function () { aviso.classList.add("d-none"); }, 3000);
 
-        // Funciones del Modal de Regalos
-        const gifts = [
-            {
-                icon: '💄',
-                name: 'Kit de Maquillaje',
-                description: 'Una colección completa de productos de maquillaje para que te veas más radiante todos los días.',
-                category: 'Belleza'
-            },
-            {
-                icon: '🎵',
-                name: 'Playlist Personalizada',
-                description: 'Una lista de reproducción con todas las canciones que nos recuerdan a nuestros mejores momentos juntos.',
-                category: 'Música'
-            },
-            {
-                icon: '🛍️',
-                name: 'Sesión de Shopping',
-                description: 'Un día completo de compras juntos, con almuerzo incluido en tu restaurante favorito.',
-                category: 'Experiencia'
-            },
-            {
-                icon: '🎨',
-                name: 'Clase de Arte Juntos',
-                description: 'Una sesión de pintura o manualidades donde podremos crear algo hermoso juntas.',
-                category: 'Arte'
-            },
-            {
-                icon: '🍕',
-                name: 'Cena Especial',
-                description: 'Una cena romántica en tu restaurante favorito, solo nosotras dos para celebrar tu día especial.',
-                category: 'Gastronomía'
-            },
-            {
-                icon: '📸',
-                name: 'Sesión de Fotos',
-                description: 'Una sesión de fotos para capturar tu belleza y personalidad.',
-                category: 'Fotografía'
-            }
-        ];
-
-        function openGiftModal() {
-            const modal = document.getElementById('giftModal');
-            const giftList = document.getElementById('giftList');
-            const giftCount = document.getElementById('giftCount');
-            
-            // Limpiar lista anterior
-            giftList.innerHTML = '';
-            
-            // Actualizar contador
-            giftCount.textContent = gifts.length;
-            
-            // Crear elementos de regalos
-            gifts.forEach((gift, index) => {
-                const giftItem = document.createElement('div');
-                giftItem.className = 'gift-item';
-                giftItem.style.animationDelay = `${index * 0.1}s`;
-                giftItem.innerHTML = `
-                    <div class="gift-icon">${gift.icon}</div>
-                    <div class="gift-details">
-                        <div class="gift-name">${gift.name}</div>
-                        <div class="gift-description">${gift.description}</div>
-                        <div class="gift-category">${gift.category}</div>
-                    </div>
-                `;
-                
-                // Efecto de revelación al hacer clic
-                giftItem.addEventListener('click', function() {
-                    this.style.transform = 'scale(1.05)';
-                    setTimeout(() => {
-                        this.style.transform = 'translateX(10px)';
-                    }, 200);
-                    createConfetti();
-                });
-                
-                giftList.appendChild(giftItem);
-            });
-            
-            modal.style.display = 'block';
-            createConfetti();
-        }
-
-        function closeGiftModal() {
-            const modal = document.getElementById('giftModal');
-            modal.style.display = 'none';
-        }
-
-        // Cerrar modal al hacer clic fuera de él
-        window.onclick = function(event) {
-            const modal = document.getElementById('giftModal');
-            if (event.target === modal) {
-                closeGiftModal();
-            }
-        }
-
-        // Cerrar modal con la tecla Escape
-        document.addEventListener('keydown', function(event) {
-            if (event.key === 'Escape') {
-                closeGiftModal();
-            }
-        });
+        document.getElementById("lista-mensajes").scrollIntoView({ behavior: "smooth", block: "start" });
+      });
     </script>
-</body>
+  </body>
 </html>
